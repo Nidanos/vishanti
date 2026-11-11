@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+/* The app's colours, used as bg-page, bg-panel, from-auth-start and so on. Change a shade here, not in a screen. */
+@theme {
+  --color-page: #172653; /* learner screens */
+  --color-page-raised: #202454;
+  --color-panel: #111a2e; /* the coding workspace */
+  --color-panel-raised: #151d32;
+  --color-code: #0b1220; /* code and test samples */
+  --color-auth-start: #172b4d; /* the sign-in gradient */
+  --color-auth-mid: #302c68;
+  --color-auth-end: #45294f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Text rendered from markdown (components/ui/Markdown.tsx). */
+.markdown > * + * { margin-top: 0.75em; }
+.markdown ul { list-style: disc; padding-left: 1.5em; }
+.markdown ol { list-style: decimal; padding-left: 1.5em; }
+.markdown a { text-decoration: underline; }
+.markdown code { font-family: ui-monospace, Consolas, monospace; font-size: 0.9em; }
+.markdown :not(pre) > code { border-radius: 0.25rem; background: rgb(255 255 255 / 0.1); padding: 0.1em 0.35em; }
+.markdown pre { overflow-x: auto; border-radius: 0.5rem; background: var(--color-code); padding: 0.75rem; }
+.markdown h1, .markdown h2, .markdown h3 { font-weight: 600; color: #fff; }
+.markdown h1, .markdown h2 { font-size: 1.15em; }
+.markdown h3 { font-size: 1.05em; }
+
+/* The learner screens' background (features/shell): glows behind a faint 42px grid. */
+.app-background {
+  background-color: #080f2b;
+  background-image:
+    radial-gradient(ellipse at 78% 5%, rgba(104, 48, 235, 0.32), transparent 38%),
+    radial-gradient(ellipse at 18% 35%, rgba(30, 93, 220, 0.15), transparent 38%),
+    radial-gradient(ellipse at 75% 95%, rgba(113, 43, 218, 0.2), transparent 40%),
+    linear-gradient(rgba(92, 120, 205, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(92, 120, 205, 0.045) 1px, transparent 1px);
+  background-size: auto, auto, auto, 42px 42px, 42px 42px;
+  background-position: center;
+}
+
+/* The landing page's background: a blue-violet gradient under a faint 24px grid (features/landing). */
+.landing-grid {
+  isolation: isolate;
+  color: #fff;
+  background: linear-gradient(115deg, #234b91 0%, #36417d 45%, #5b3773 100%);
+}
+.landing-grid::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+html {
+  scroll-behavior: smooth;
+}

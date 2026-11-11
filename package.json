@@ -1,0 +1,19 @@
+{
+  "name": "ai-tutor-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI Tutor: evidence-based adaptive learning system (MCA-269)",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "scripts": {
+    "dev": "pnpm -r --parallel --if-present run dev",
+    "build": "pnpm -r --if-present run build",
+    "typecheck": "pnpm -r --if-present run typecheck",
+    "db:up": "docker compose up -d",
+    "db:down": "docker compose down",
+    "report:pdf": "pnpm --filter @ai-tutor/report-pdf pdf"
+  },
+  "packageManager": "pnpm@10.30.3",
+  "engines": {
+    "node": ">=22"
+  }
+}

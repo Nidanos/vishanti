@@ -1,0 +1,30 @@
+# Node & PNPM dependencies 
+node_modules/ 
+.pnpm-store/ 
+
+# Build outputs & caches 
+dist/ 
+.next/ 
+out/ 
+build/ 
+*.tsbuildinfo
+next-env.d.ts
+
+# Secrets & environment variables
+.env
+.env.local
+.env.*.local 
+
+# Docker persistent local data
+.docker-data/ 
+
+# OS & IDE junk
+.DS_Store 
+Thumbs.db
+.vscode/
+.idea/
+*.log
+
+# Playwright output (apps/web e2e)
+test-results/
+playwright-report/
